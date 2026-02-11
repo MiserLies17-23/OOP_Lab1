@@ -1,25 +1,26 @@
 ﻿using System;
 using System.Windows.Forms;
+using WinFormsApp_OOP_Lab1.Exceptions;
 using WinFormsApp_OOP_Lab1.Model;
 
 namespace WinFormsApp_OOP_Lab1
 {
     public partial class EditForm : Form
     {
-        private Person Person;
+        private Person _person;
 
         public EditForm()
         {
             InitializeComponent();
             Load_ComboBox();
-            Person = new Person();
+            _person = new Person();
         }
 
         public EditForm(Person person)
         {
             InitializeComponent();
             Load_ComboBox();
-            this.Person = person;
+            _person = person;
         }
 
         private void Load_ComboBox()
@@ -42,13 +43,13 @@ namespace WinFormsApp_OOP_Lab1
 
         public void ShowData()
         {
-            GenderComboBox.SelectedValue = Person.Gen;
-            NameTextBox.Text = Person.Name; 
-            HeightTextBox.Text = Person.Height.ToString();
-            WidthTextBox.Text = Person.Width.ToString();
-            CountryTextBox.Text = Person.Country; 
-            CityTextBox.Text = Person.City;
-            AgeTextBox.Text = Person.Age.ToString();
+            GenderComboBox.SelectedValue = _person.Gen;
+            NameTextBox.Text = _person.Name; 
+            HeightTextBox.Text = _person.Height.ToString();
+            WidthTextBox.Text = _person.Width.ToString();
+            CountryTextBox.Text = _person.Country; 
+            CityTextBox.Text = _person.City;
+            AgeTextBox.Text = _person.Age.ToString();
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
@@ -60,23 +61,20 @@ namespace WinFormsApp_OOP_Lab1
         {
             try
             {
-                Person.Gen = (Gender)GenderComboBox.SelectedValue;
-                Person.Name = NameTextBox.Text;
-                Person.Height = Convert.ToInt32(HeightTextBox.Text);
-                Person.Width = Convert.ToInt32(WidthTextBox.Text);
-                Person.Age = Convert.ToInt32(AgeTextBox.Text);
-                Person.City = CityTextBox.Text;
-                Person.Country = CountryTextBox.Text;
+                _person.Gen = (Gender)GenderComboBox.SelectedValue;
+                _person.Name = NameTextBox.Text;
+                _person.Height = Convert.ToInt32(HeightTextBox.Text);
+                _person.Width = Convert.ToInt32(WidthTextBox.Text);
+                _person.Age = Convert.ToInt32(AgeTextBox.Text);
+                _person.City = CityTextBox.Text;
+                _person.Country = CountryTextBox.Text;
 
                 MessageBox.Show("Данные успешно обновлены!");
                 Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message,
-                "Ошибка",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Asterisk);
+                ExceptionHandler.MessageBox(0, ex.Message, "Ошибка", 16);
             }
         }
     }

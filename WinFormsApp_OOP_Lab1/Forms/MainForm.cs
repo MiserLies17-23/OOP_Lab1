@@ -1,20 +1,30 @@
-using System.Drawing.Text;
+using System;
+using System.Windows.Forms;
+using WinFormsApp_OOP_Lab1.Exceptions;
 using WinFormsApp_OOP_Lab1.Model;
 
 namespace WinFormsApp_OOP_Lab1
 {
     public partial class MainForm : Form
     {
-        private Person Person;
+        private Person _person;
 
+        private HelloForm _helloForm;
+
+        private EditForm _editForm;
         public MainForm()
         {
             InitializeComponent();
-            Person = new Person();
+            _person = new Person();
+            _helloForm = new HelloForm();
+            _editForm = new EditForm(_person);
+
+
         }
 
         private void CreateForm_Load(object sender, EventArgs e)
         {
+            _helloForm.ShowDialog();
             ShowData();
         }
 
@@ -22,28 +32,30 @@ namespace WinFormsApp_OOP_Lab1
         {
             try
             {
-                EditForm editForm = new EditForm(Person);
-                editForm.ShowDialog();
+                
+                _editForm.ShowDialog();
                 ShowData();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message,
-                "Ошибка",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Asterisk);
+                ExceptionHandler.MessageBox(0, ex.Message, "Ошибка", 16);
             }
         }
 
         private void ShowData()
         {
-            GenderTextBox.Text = Person.GetMaleToString(); // Вывод поля через специальный метод
-            NameTextBox.Text = Person.ToString(); // Вывод поля через переопределённый метод ToString()
-            HeightTextBox.Text = Person.Height.ToString();
-            WidthTextBox.Text = Person.Width.ToString(); // Вывод поля через метод ToString()
-            CountryTextBox.Text = Person.Country; // Непосредственнный вывод поля
-            CityTextBox.Text = Person.City;
-            AgeTextBox.Text = "0x" + Person.Age.ToString("x");
+            GenderTextBox.Text = _person.GetMaleToString(); // Вывод поля через специальный метод
+            NameTextBox.Text = _person.ToString(); // Вывод поля через переопределённый метод ToString()
+            HeightTextBox.Text = _person.Height.ToString();
+            WidthTextBox.Text = _person.Width.ToString(); // Вывод поля через метод ToString()
+            CountryTextBox.Text = _person.Country; // Непосредственнный вывод поля
+            CityTextBox.Text = _person.City;
+            AgeTextBox.Text = "0x" + _person.Age.ToString("x");
+        }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

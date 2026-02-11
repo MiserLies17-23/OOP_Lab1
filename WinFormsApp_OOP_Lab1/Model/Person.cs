@@ -1,11 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
-using WinFormsApp_OOP_Lab1.util;
+﻿using WinFormsApp_OOP_Lab1.util;
 
 namespace WinFormsApp_OOP_Lab1.Model
 {
     public class Person
     {
-        //private static int Count;
+        private static int _count;
         private Gender _gen;
         private string _name;
         private float _height;
@@ -14,14 +13,16 @@ namespace WinFormsApp_OOP_Lab1.Model
         private string _country;
         private int _age;
 
-        public Gender Gen { get; set; }
+        public int Count { get => _count; set => _count = value; }
+
+        public Gender Gen { get => _gen; set => _gen = value; }
 
         public string Name
         {
             get => _name;
             set
             {
-                Validation.StringParamValidation(value);
+                Validation.StringParamValidation(value); // Таким же образом заменить везде
                 _name = value;
             }
         }
@@ -95,6 +96,7 @@ namespace WinFormsApp_OOP_Lab1.Model
             Age = 20;
             Country = "Undefinded";
             City = "Undefinded";
+            Count++;
         }
 
         public Person(Gender gender) : this()

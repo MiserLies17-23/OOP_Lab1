@@ -46,6 +46,7 @@
             WidthTextBox = new TextBox();
             AgeTextBox = new TextBox();
             GenderTextBox = new TextBox();
+            ExitButton = new Button();
             SuspendLayout();
             // 
             // label1
@@ -207,11 +208,23 @@
             GenderTextBox.Size = new Size(125, 27);
             GenderTextBox.TabIndex = 25;
             // 
+            // ExitButton
+            // 
+            ExitButton.BackgroundImage = Properties.Resources.button_exit_icon;
+            ExitButton.BackgroundImageLayout = ImageLayout.Stretch;
+            ExitButton.Location = new Point(34, 327);
+            ExitButton.Name = "ExitButton";
+            ExitButton.Size = new Size(125, 97);
+            ExitButton.TabIndex = 26;
+            ExitButton.UseVisualStyleBackColor = true;
+            ExitButton.Click += ExitButton_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(833, 450);
+            Controls.Add(ExitButton);
             Controls.Add(GenderTextBox);
             Controls.Add(AgeTextBox);
             Controls.Add(WidthTextBox);
@@ -257,5 +270,6 @@
         private TextBox WidthTextBox;
         private TextBox AgeTextBox;
         private TextBox GenderTextBox;
+        private Button ExitButton;
     }
 }
