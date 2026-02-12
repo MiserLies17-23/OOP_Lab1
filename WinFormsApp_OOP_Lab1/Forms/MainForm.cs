@@ -44,6 +44,7 @@ namespace WinFormsApp_OOP_Lab1
 
         private void ShowData()
         {
+            CountLabel.Text += Person.Count;
             GenderTextBox.Text = _person.GetMaleToString(); // Вывод поля через специальный метод
             NameTextBox.Text = _person.ToString(); // Вывод поля через переопределённый метод ToString()
             HeightTextBox.Text = _person.Height.ToString();
@@ -51,6 +52,7 @@ namespace WinFormsApp_OOP_Lab1
             CountryTextBox.Text = _person.Country; // Непосредственнный вывод поля
             CityTextBox.Text = _person.City;
             AgeTextBox.Text = "0x" + _person.Age.ToString("x");
+            CurrentLabel.Text += Person.Persons.IndexOf(_person).ToString();
         }
 
         private void ExitButton_Click(object sender, EventArgs e)

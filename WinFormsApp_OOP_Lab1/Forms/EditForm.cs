@@ -50,6 +50,7 @@ namespace WinFormsApp_OOP_Lab1
             CountryTextBox.Text = _person.Country; 
             CityTextBox.Text = _person.City;
             AgeTextBox.Text = _person.Age.ToString();
+            CurrentLabel.Text += Person.Persons.IndexOf(_person).ToString();
         }
 
         private void ExitButton_Click(object sender, EventArgs e)

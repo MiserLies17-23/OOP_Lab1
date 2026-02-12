@@ -28,56 +28,58 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
+            HeaderLabel = new Label();
+            VariantLabel = new Label();
+            DataLabel = new Label();
             NameTextBox = new TextBox();
             CountryTextBox = new TextBox();
             CityTextBox = new TextBox();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            label8 = new Label();
-            label9 = new Label();
-            label10 = new Label();
+            GenderLabel = new Label();
+            NameLabel = new Label();
+            WidthLabel = new Label();
+            HeightLabel = new Label();
+            CountryLabel = new Label();
+            CityLabel = new Label();
+            AgeLabel = new Label();
             ChangeButton = new Button();
             HeightTextBox = new TextBox();
             WidthTextBox = new TextBox();
             AgeTextBox = new TextBox();
             GenderTextBox = new TextBox();
             ExitButton = new Button();
+            CountLabel = new Label();
+            CurrentLabel = new Label();
             SuspendLayout();
             // 
-            // label1
+            // HeaderLabel
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            label1.Location = new Point(273, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(257, 25);
-            label1.TabIndex = 0;
-            label1.Text = "Лабораторная работа №1";
+            HeaderLabel.AutoSize = true;
+            HeaderLabel.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            HeaderLabel.Location = new Point(273, 9);
+            HeaderLabel.Name = "HeaderLabel";
+            HeaderLabel.Size = new Size(257, 25);
+            HeaderLabel.TabIndex = 0;
+            HeaderLabel.Text = "Лабораторная работа №1";
             // 
-            // label2
+            // VariantLabel
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label2.Location = new Point(315, 45);
-            label2.Name = "label2";
-            label2.Size = new Size(161, 20);
-            label2.TabIndex = 1;
-            label2.Text = "Вариант 13: Человек";
+            VariantLabel.AutoSize = true;
+            VariantLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            VariantLabel.Location = new Point(315, 45);
+            VariantLabel.Name = "VariantLabel";
+            VariantLabel.Size = new Size(161, 20);
+            VariantLabel.TabIndex = 1;
+            VariantLabel.Text = "Вариант 13: Человек";
             // 
-            // label3
+            // DataLabel
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label3.Location = new Point(354, 92);
-            label3.Name = "label3";
-            label3.Size = new Size(119, 20);
-            label3.TabIndex = 2;
-            label3.Text = "Общие данные";
+            DataLabel.AutoSize = true;
+            DataLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            DataLabel.Location = new Point(354, 92);
+            DataLabel.Name = "DataLabel";
+            DataLabel.Size = new Size(119, 20);
+            DataLabel.TabIndex = 2;
+            DataLabel.Text = "Общие данные";
             // 
             // NameTextBox
             // 
@@ -103,68 +105,68 @@
             CityTextBox.Size = new Size(125, 27);
             CityTextBox.TabIndex = 9;
             // 
-            // label4
+            // GenderLabel
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(122, 133);
-            label4.Name = "label4";
-            label4.Size = new Size(37, 20);
-            label4.TabIndex = 10;
-            label4.Text = "Пол";
+            GenderLabel.AutoSize = true;
+            GenderLabel.Location = new Point(122, 133);
+            GenderLabel.Name = "GenderLabel";
+            GenderLabel.Size = new Size(37, 20);
+            GenderLabel.TabIndex = 10;
+            GenderLabel.Text = "Пол";
             // 
-            // label5
+            // NameLabel
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(304, 133);
-            label5.Name = "label5";
-            label5.Size = new Size(39, 20);
-            label5.TabIndex = 11;
-            label5.Text = "Имя";
+            NameLabel.AutoSize = true;
+            NameLabel.Location = new Point(304, 133);
+            NameLabel.Name = "NameLabel";
+            NameLabel.Size = new Size(39, 20);
+            NameLabel.TabIndex = 11;
+            NameLabel.Text = "Имя";
             // 
-            // label6
+            // WidthLabel
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(379, 221);
-            label6.Name = "label6";
-            label6.Size = new Size(60, 20);
-            label6.TabIndex = 12;
-            label6.Text = "Вес (кг)";
+            WidthLabel.AutoSize = true;
+            WidthLabel.Location = new Point(379, 221);
+            WidthLabel.Name = "WidthLabel";
+            WidthLabel.Size = new Size(60, 20);
+            WidthLabel.TabIndex = 12;
+            WidthLabel.Text = "Вес (кг)";
             // 
-            // label7
+            // HeightLabel
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(201, 221);
-            label7.Name = "label7";
-            label7.Size = new Size(71, 20);
-            label7.TabIndex = 13;
-            label7.Text = "Рост (см)";
+            HeightLabel.AutoSize = true;
+            HeightLabel.Location = new Point(201, 221);
+            HeightLabel.Name = "HeightLabel";
+            HeightLabel.Size = new Size(71, 20);
+            HeightLabel.TabIndex = 13;
+            HeightLabel.Text = "Рост (см)";
             // 
-            // label8
+            // CountryLabel
             // 
-            label8.AutoSize = true;
-            label8.Location = new Point(472, 133);
-            label8.Name = "label8";
-            label8.Size = new Size(58, 20);
-            label8.TabIndex = 14;
-            label8.Text = "Страна";
+            CountryLabel.AutoSize = true;
+            CountryLabel.Location = new Point(472, 133);
+            CountryLabel.Name = "CountryLabel";
+            CountryLabel.Size = new Size(58, 20);
+            CountryLabel.TabIndex = 14;
+            CountryLabel.Text = "Страна";
             // 
-            // label9
+            // CityLabel
             // 
-            label9.AutoSize = true;
-            label9.Location = new Point(600, 133);
-            label9.Name = "label9";
-            label9.Size = new Size(144, 20);
-            label9.TabIndex = 15;
-            label9.Text = "Город проживания";
+            CityLabel.AutoSize = true;
+            CityLabel.Location = new Point(600, 133);
+            CityLabel.Name = "CityLabel";
+            CityLabel.Size = new Size(144, 20);
+            CityLabel.TabIndex = 15;
+            CityLabel.Text = "Город проживания";
             // 
-            // label10
+            // AgeLabel
             // 
-            label10.AutoSize = true;
-            label10.Location = new Point(545, 221);
-            label10.Name = "label10";
-            label10.Size = new Size(64, 20);
-            label10.TabIndex = 16;
-            label10.Text = "Возраст";
+            AgeLabel.AutoSize = true;
+            AgeLabel.Location = new Point(545, 221);
+            AgeLabel.Name = "AgeLabel";
+            AgeLabel.Size = new Size(64, 20);
+            AgeLabel.TabIndex = 16;
+            AgeLabel.Text = "Возраст";
             // 
             // ChangeButton
             // 
@@ -219,30 +221,50 @@
             ExitButton.UseVisualStyleBackColor = true;
             ExitButton.Click += ExitButton_Click;
             // 
+            // CountLabel
+            // 
+            CountLabel.AutoSize = true;
+            CountLabel.Location = new Point(34, 92);
+            CountLabel.Name = "CountLabel";
+            CountLabel.Size = new Size(120, 20);
+            CountLabel.TabIndex = 27;
+            CountLabel.Text = "Всего объектов:";
+            // 
+            // CurrentLabel
+            // 
+            CurrentLabel.AutoSize = true;
+            CurrentLabel.Location = new Point(662, 92);
+            CurrentLabel.Name = "CurrentLabel";
+            CurrentLabel.Size = new Size(129, 20);
+            CurrentLabel.TabIndex = 28;
+            CurrentLabel.Text = "Индекс текущего:";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(833, 450);
+            Controls.Add(CurrentLabel);
+            Controls.Add(CountLabel);
             Controls.Add(ExitButton);
             Controls.Add(GenderTextBox);
             Controls.Add(AgeTextBox);
             Controls.Add(WidthTextBox);
             Controls.Add(HeightTextBox);
             Controls.Add(ChangeButton);
-            Controls.Add(label10);
-            Controls.Add(label9);
-            Controls.Add(label8);
-            Controls.Add(label7);
-            Controls.Add(label6);
-            Controls.Add(label5);
-            Controls.Add(label4);
+            Controls.Add(AgeLabel);
+            Controls.Add(CityLabel);
+            Controls.Add(CountryLabel);
+            Controls.Add(HeightLabel);
+            Controls.Add(WidthLabel);
+            Controls.Add(NameLabel);
+            Controls.Add(GenderLabel);
             Controls.Add(CityTextBox);
             Controls.Add(CountryTextBox);
             Controls.Add(NameTextBox);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(DataLabel);
+            Controls.Add(VariantLabel);
+            Controls.Add(HeaderLabel);
             Name = "MainForm";
             Text = "MainForm";
             Load += CreateForm_Load;
@@ -252,24 +274,26 @@
 
         #endregion
 
-        private Label label1;
-        private Label label2;
-        private Label label3;
+        private Label HeaderLabel;
+        private Label VariantLabel;
+        private Label DataLabel;
         private TextBox NameTextBox;
         private TextBox CountryTextBox;
         private TextBox CityTextBox;
-        private Label label4;
-        private Label label5;
-        private Label label6;
-        private Label label7;
-        private Label label8;
-        private Label label9;
-        private Label label10;
+        private Label GenderLabel;
+        private Label NameLabel;
+        private Label WidthLabel;
+        private Label HeightLabel;
+        private Label CountryLabel;
+        private Label CityLabel;
+        private Label AgeLabel;
         private Button ChangeButton;
         private TextBox HeightTextBox;
         private TextBox WidthTextBox;
         private TextBox AgeTextBox;
         private TextBox GenderTextBox;
         private Button ExitButton;
+        private Label CountLabel;
+        private Label CurrentLabel;
     }
 }

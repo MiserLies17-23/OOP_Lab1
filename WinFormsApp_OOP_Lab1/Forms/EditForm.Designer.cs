@@ -45,6 +45,7 @@
             SaveButton = new Button();
             ExitButton = new Button();
             GenderComboBox = new ComboBox();
+            CurrentLabel = new Label();
             SuspendLayout();
             // 
             // NameTextBox
@@ -191,11 +192,21 @@
             GenderComboBox.Size = new Size(125, 28);
             GenderComboBox.TabIndex = 17;
             // 
+            // CurrentLabel
+            // 
+            CurrentLabel.AutoSize = true;
+            CurrentLabel.Location = new Point(12, 50);
+            CurrentLabel.Name = "CurrentLabel";
+            CurrentLabel.Size = new Size(129, 20);
+            CurrentLabel.TabIndex = 29;
+            CurrentLabel.Text = "Индекс текущего:";
+            // 
             // EditForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(CurrentLabel);
             Controls.Add(GenderComboBox);
             Controls.Add(ExitButton);
             Controls.Add(SaveButton);
@@ -239,5 +250,6 @@
         private Button SaveButton;
         private Button ExitButton;
         private ComboBox GenderComboBox;
+        private Label CurrentLabel;
     }
 }

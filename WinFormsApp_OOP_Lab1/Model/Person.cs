@@ -4,7 +4,9 @@ namespace WinFormsApp_OOP_Lab1.Model
 {
     public class Person
     {
-        private static int _count;
+        private static int _count = 0;
+        private static List<Person> _persons = [];
+
         private Gender _gen;
         private string _name;
         private float _height;
@@ -13,7 +15,7 @@ namespace WinFormsApp_OOP_Lab1.Model
         private string _country;
         private int _age;
 
-        public int Count { get => _count; set => _count = value; }
+        public static int Count { get => _count; set => _count = value; }
 
         public Gender Gen { get => _gen; set => _gen = value; }
 
@@ -87,6 +89,12 @@ namespace WinFormsApp_OOP_Lab1.Model
             }
         }
 
+        public static List<Person> Persons
+        {
+            get => _persons;
+            set => _persons = value;
+        }
+
         public Person()
         {
             Gen = Gender.MALE;
@@ -97,6 +105,7 @@ namespace WinFormsApp_OOP_Lab1.Model
             Country = "Undefinded";
             City = "Undefinded";
             Count++;
+            Persons.Add(this);
         }
 
         public Person(Gender gender) : this()
