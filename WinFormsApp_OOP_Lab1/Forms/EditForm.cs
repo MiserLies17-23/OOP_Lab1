@@ -64,8 +64,8 @@ namespace WinFormsApp_OOP_Lab1
             {
                 _person.Gen = (Gender)GenderComboBox.SelectedValue;
                 _person.Name = NameTextBox.Text;
-                _person.Height = Convert.ToInt32(HeightTextBox.Text);
-                _person.Width = Convert.ToInt32(WidthTextBox.Text);
+                _person.Height = Convert.ToDouble(HeightTextBox.Text);
+                _person.Width = Convert.ToDouble(WidthTextBox.Text);
                 _person.Age = Convert.ToInt32(AgeTextBox.Text);
                 _person.City = CityTextBox.Text;
                 _person.Country = CountryTextBox.Text;
@@ -73,10 +73,15 @@ namespace WinFormsApp_OOP_Lab1
                 MessageBox.Show("Данные успешно обновлены!");
                 Close();
             }
-            catch (Exception ex)
+            catch (PersonValidationException ex)
             {
-                ExceptionHandler.MessageBox(0, ex.Message, "Ошибка", 16);
+                ExceptionHandler.MessageBox(
+                    IntPtr.Zero,
+                    ex.ToString(),
+                    "Ошибка валидации",
+                    16);
             }
+
         }
     }
 }

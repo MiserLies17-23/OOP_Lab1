@@ -9,8 +9,8 @@ namespace WinFormsApp_OOP_Lab1.Model
 
         private Gender _gen;
         private string _name;
-        private float _height;
-        private float _width;
+        private double _height;
+        private double _width;
         private string _city;
         private string _country;
         private int _age;
@@ -24,31 +24,27 @@ namespace WinFormsApp_OOP_Lab1.Model
             get => _name;
             set
             {
-                Validation.StringParamValidation(value); // Таким же образом заменить везде
+                Validation.StringParamValidation(value, nameof(Name)); 
                 _name = value;
             }
         }
 
-        public float Height
+        public double Height
         {
             get => _height;
             set
             {
-                if (value < 0)
-                    throw new ArgumentOutOfRangeException("Рост не может быть отрицательным!");
-                if (value > 250)
-                    throw new ArgumentException("Слишком большой рост!");
+                Validation.HeightValidation(value);
                 _height = value;
             }
         }
 
-        public float Width
+        public double Width
         {
             get => _width;
             set
             {
-                if (value < 0)
-                    throw new ArgumentOutOfRangeException("Вес не может быть отрицательным!");
+                Validation.WidthValidation(value);
                 _width = value;
 
             }
@@ -59,10 +55,7 @@ namespace WinFormsApp_OOP_Lab1.Model
             get => _age;
             set
             {
-                if (value < 0)
-                    throw new ArgumentOutOfRangeException("Возраст не может быть отрицательным!");
-                if (value > 120)
-                    throw new ArgumentException("Слишком большой возраст!");
+                Validation.AgeValidation(value);
                 _age = value;
             }
         }
@@ -72,8 +65,7 @@ namespace WinFormsApp_OOP_Lab1.Model
             get => _country;
             set
             {
-                if (value == "")
-                    throw new ArgumentNullException("Название страны не может быть пустым!");
+                Validation.StringParamValidation(value, nameof(Country));
                 _country = value;
             }
         }
@@ -83,8 +75,7 @@ namespace WinFormsApp_OOP_Lab1.Model
             get => _city;
             set
             {
-                if (value == "")
-                    throw new ArgumentNullException("Название страны не может быть пустым!");
+                Validation.StringParamValidation(value, nameof(City));
                 _city = value;
             }
         }
