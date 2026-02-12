@@ -81,6 +81,14 @@ namespace WinFormsApp_OOP_Lab1
                     "Ошибка валидации",
                     16);
             }
+            catch (OutOfMemoryException ex)
+            {
+                ExceptionHandler.MessageBox(
+                    IntPtr.Zero,
+                    ex.ToString(),
+                    "Ошибка переполнения памяти",
+                    16);
+            }
 
         }
     }

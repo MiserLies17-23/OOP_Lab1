@@ -32,13 +32,25 @@ namespace WinFormsApp_OOP_Lab1
         {
             try
             {
-                
+
                 _editForm.ShowDialog();
                 ShowData();
             }
-            catch (Exception ex)
+            catch (PersonValidationException ex)
             {
-                ExceptionHandler.MessageBox(0, ex.Message, "Ошибка", 16);
+                ExceptionHandler.MessageBox(
+                    IntPtr.Zero,
+                    ex.ToString(),
+                    "Ошибка валидации",
+                    16);
+            }
+            catch (OutOfMemoryException ex)
+            {
+                ExceptionHandler.MessageBox(
+                    IntPtr.Zero,
+                    ex.ToString(),
+                    "Ошибка переполнения памяти",
+                    16);
             }
         }
 

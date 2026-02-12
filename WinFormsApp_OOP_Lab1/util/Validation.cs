@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WinFormsApp_OOP_Lab1.Exceptions;
 
 namespace WinFormsApp_OOP_Lab1.util
@@ -34,7 +30,7 @@ namespace WinFormsApp_OOP_Lab1.util
         {
             if (value <= 0 || value > 250)
                 throw new PersonValidationException(
-                    "Некорректный рост!",
+                    "Некорректный рост! Рост должен быть в пределах от 0 до 250 см!",
                     "Height",
                     value.ToString()
                 );
@@ -44,7 +40,7 @@ namespace WinFormsApp_OOP_Lab1.util
         {
             if (value <= 0 || value > 300)
                 throw new PersonValidationException(
-                    "Некорректный вес!",
+                    "Некорректный вес! Вес должен быть в пределах от 0 до 300 кг!",
                     "Weight",
                     value.ToString()
                 );
@@ -54,7 +50,7 @@ namespace WinFormsApp_OOP_Lab1.util
         {
             if (value < 0 || value > 120)
                 throw new PersonValidationException(
-                    "Некорректный возраст!",
+                    "Некорректный возраст! Возраст должен быть в пределах от 0 до 120 лет!",
                     "Age",
                     value.ToString()
                 );
