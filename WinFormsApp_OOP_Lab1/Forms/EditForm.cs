@@ -62,6 +62,7 @@ namespace WinFormsApp_OOP_Lab1
         {
             try
             {
+
                 _person.Gen = (Gender)GenderComboBox.SelectedValue;
                 _person.Name = NameTextBox.Text;
                 _person.Height = Convert.ToDouble(HeightTextBox.Text);
