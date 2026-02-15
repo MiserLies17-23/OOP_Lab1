@@ -1,24 +1,53 @@
-﻿using WinFormsApp_OOP_Lab1.util;
+﻿using WinFormsApp_OOP_Lab1.Exceptions;
+using WinFormsApp_OOP_Lab1.util;
 
 namespace WinFormsApp_OOP_Lab1.Model
 {
+    /// <summary>
+    /// Класс 
+    /// </summary>
     public class Person
     {
+        // Статическое поле для подсчёта количества созданных объектов
         private static int _count = 0;
+
+        // Список для хранения объектов класса
         private static List<Person> _persons = [];
 
+        // Пол человека
         private Gender _gen;
+
+        // Имя человека
         private string _name;
+
+        // Рост человека
         private double _height;
+
+        // Вес человека
         private double _width;
+
+        // Город проживания человека
         private string _city;
+
+        // Страна проживания человека
         private string _country;
+
+        // Возраст человека
         private int _age;
 
-        public static int Count { get => _count; set => _count = value; }
+        /// <summary>
+        /// Свойство для подсчёта количества созданных объектов
+        /// </summary>
+        public static int Count { get => _count; private set => _count = value; }
 
-        public Gender Gen { get => _gen; set => _gen = value; }
+        /// <summary>
+        /// Свойство для пола объекта
+        /// </summary>
+        public Gender Gen { get => _gen; set => _gen = value;}
 
+        /// <summary>
+        /// Свойство для имени объекта
+        /// </summary>
         public string Name
         {
             get => _name;
@@ -29,6 +58,9 @@ namespace WinFormsApp_OOP_Lab1.Model
             }
         }
 
+        /// <summary>
+        /// Свойство для роста объекта
+        /// </summary>
         public double Height
         {
             get => _height;
@@ -39,6 +71,9 @@ namespace WinFormsApp_OOP_Lab1.Model
             }
         }
 
+        /// <summary>
+        /// Свойство для веса объекта
+        /// </summary>
         public double Width
         {
             get => _width;
@@ -50,6 +85,9 @@ namespace WinFormsApp_OOP_Lab1.Model
             }
         }
 
+        /// <summary>
+        /// Свойство для возраста объекта
+        /// </summary>
         public int Age
         {
             get => _age;
@@ -60,6 +98,9 @@ namespace WinFormsApp_OOP_Lab1.Model
             }
         }
 
+        /// <summary>
+        /// Свойство для страны объекта
+        /// </summary>
         public string Country
         {
             get => _country;
@@ -70,6 +111,9 @@ namespace WinFormsApp_OOP_Lab1.Model
             }
         }
 
+        /// <summary>
+        /// Свойство для города проживания объекта
+        /// </summary>
         public string City 
         { 
             get => _city;
@@ -80,12 +124,23 @@ namespace WinFormsApp_OOP_Lab1.Model
             }
         }
 
+        /// <summary>
+        /// Свойство для списка созданных объектов 
+        /// </summary>
         public static List<Person> Persons
         {
             get => _persons;
-            set => _persons = value;
+            set
+            {
+                if (value.Count > 2_000_000)
+                    throw new MemoryException();
+                _persons = value;
+            }
         }
 
+        /// <summary>
+        /// Конструктор без параметров
+        /// </summary>
         public Person()
         {
             Gen = Gender.MALE;
@@ -99,11 +154,20 @@ namespace WinFormsApp_OOP_Lab1.Model
             Persons.Add(this);
         }
 
+        /// <summary>
+        /// Конструктор с одним параметром
+        /// </summary>
+        /// <param name="gender"> Пол человека </param>
         public Person(Gender gender) : this()
         {
             Gen = gender;
         }
 
+        /// <summary>
+        /// Конструктор с двумя параметрами
+        /// </summary>
+        /// <param name="gender"> Пол человека </param>
+        /// <param name="name"> Имя </param>
         public Person(Gender gender, string name) : this()
         {
             
@@ -111,7 +175,17 @@ namespace WinFormsApp_OOP_Lab1.Model
             Name = name;
         }
 
-        public Person(Gender gender, string name, float height, float width, int age,
+        /// <summary>
+        /// Конструктор с количеством параметров, равным количеству полей класса
+        /// </summary>
+        /// <param name="gender"> Пол человека </param>
+        /// <param name="name"> Имя </param>
+        /// <param name="height"> Рост </param>
+        /// <param name="width"> Вес </param>
+        /// <param name="age"> Возраст </param>
+        /// <param name="country"> Страна </param>
+        /// <param name="city"> Город проживания </param>
+        public Person(Gender gender, string name, double height, double width, int age,
             string country, string city) : this()
         {
             Gen = gender;
@@ -123,6 +197,10 @@ namespace WinFormsApp_OOP_Lab1.Model
             City = city;
         }
 
+        /// <summary>
+        /// Метод для вывода пола человка
+        /// </summary>
+        /// <returns> Пол человека в формате строки </returns>
         public string GetMaleToString()
         {
             if (Gen == Gender.FEMALE)
@@ -130,6 +208,10 @@ namespace WinFormsApp_OOP_Lab1.Model
             return "Муж";
         }
 
+        /// <summary>
+        /// Переопределённый метод ToString() для всего класса
+        /// </summary>
+        /// <returns> Имя объекта класса в формате строки </returns>
         public override string ToString()
         {
             return Name;

@@ -5,10 +5,17 @@ using WinFormsApp_OOP_Lab1.Model;
 
 namespace WinFormsApp_OOP_Lab1
 {
+    /// <summary>
+    /// Форма для изменения данных человека
+    /// </summary>
     public partial class EditForm : Form
     {
+        // Объект класса Person - человек
         private Person _person;
 
+        /// <summary>
+        /// Конструктор без параметров
+        /// </summary>
         public EditForm()
         {
             InitializeComponent();
@@ -16,6 +23,10 @@ namespace WinFormsApp_OOP_Lab1
             _person = new Person();
         }
 
+        /// <summary>
+        /// Конструктор с параметрами
+        /// </summary>
+        /// <param name="person"> объект класса Person </param>
         public EditForm(Person person)
         {
             InitializeComponent();
@@ -23,6 +34,9 @@ namespace WinFormsApp_OOP_Lab1
             _person = person;
         }
 
+        /// <summary>
+        /// Метод для загрузки GenderComboBox
+        /// </summary>
         private void Load_ComboBox()
         {
             var displayValues = new Dictionary<Gender, string>
@@ -36,11 +50,19 @@ namespace WinFormsApp_OOP_Lab1
             GenderComboBox.ValueMember = "Key";
         }
 
+        /// <summary>
+        /// Загрузка формы
+        /// </summary>
+        /// <param name="sender"> объект, вызывающий событие </param>
+        /// <param name="e"> событие </param>
         private void EditForm_Load(object sender, EventArgs e)
         {
             ShowData();
         }
 
+        /// <summary>
+        /// Метод для отображения данных человека
+        /// </summary>
         public void ShowData()
         {
             GenderComboBox.SelectedValue = _person.Gen;
@@ -50,18 +72,46 @@ namespace WinFormsApp_OOP_Lab1
             CountryTextBox.Text = _person.Country; 
             CityTextBox.Text = _person.City;
             AgeTextBox.Text = _person.Age.ToString();
-            CurrentLabel.Text += Person.Persons.IndexOf(_person).ToString();
+            CurrentLabel.Text = $"Текущий объект: {Person.Persons.IndexOf(_person)}" ;
         }
 
+        /// <summary>
+        /// События для кнопки "Назад"
+        /// </summary>
+        /// <param name="sender"> объект, вызывающий событие </param>
+        /// <param name="e"> событие </param>
         private void ExitButton_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        /// <summary>
+        /// Событие для кнопки "Сохранить"
+        /// </summary>
+        /// <param name="sender"> объект, вызывающий событие </param>
+        /// <param name="e"> событие </param>
         private void SaveButton_Click(object sender, EventArgs e)
         {
             try
             {
+                if (!int.TryParse(AgeTextBox.Text, out int age))
+                    throw new PersonValidationException(
+                        "Возраст должен быть числом!",
+                        nameof(_person.Age),
+                        AgeTextBox.Text
+                        );
+
+                if (!float.TryParse(HeightTextBox.Text, out float height))
+                    throw new PersonValidationException(
+                        "Рост должен быть числом!",
+                        nameof(_person.Height),
+                        HeightTextBox.Text);
+
+                if (!float.TryParse(WidthTextBox.Text, out float weight))
+                    throw new PersonValidationException(
+                        "Вес должен быть числом!", 
+                        nameof(_person.Width), 
+                       WidthTextBox.Text);
 
                 _person.Gen = (Gender)GenderComboBox.SelectedValue;
                 _person.Name = NameTextBox.Text;

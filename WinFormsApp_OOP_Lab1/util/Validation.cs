@@ -3,8 +3,17 @@ using WinFormsApp_OOP_Lab1.Exceptions;
 
 namespace WinFormsApp_OOP_Lab1.util
 {
+    /// <summary>
+    /// Статический утилитный класс для валидации
+    /// </summary>
     public static class Validation
     {
+        /// <summary>
+        /// Статический метод для валидации строковых полей 
+        /// </summary>
+        /// <param name="value"> Проверяемое значение </param>
+        /// <param name="typeName"> Имя поля </param>
+        /// <exception cref="PersonValidationException"> Ошибка валидации </exception>
         public static void StringParamValidation(string value, string typeName)
         {
             if (string.IsNullOrWhiteSpace(value))
@@ -26,6 +35,11 @@ namespace WinFormsApp_OOP_Lab1.util
                     value);
         }
 
+        /// <summary>
+        /// Статический метод для валидации роста человека
+        /// </summary>
+        /// <param name="value"> Проверяемое значение </param>
+        /// <exception cref="PersonValidationException"> Ошибка валидации </exception>
         public static void HeightValidation (double value)
         {
             if (value <= 0 || value > 250)
@@ -36,6 +50,11 @@ namespace WinFormsApp_OOP_Lab1.util
                 );
         }
 
+        /// <summary>
+        /// Статический метод для валидации веса пользователя
+        /// </summary>
+        /// <param name="value"> Проверяемое значение </param>
+        /// <exception cref="PersonValidationException"> Ошибка валидации </exception>
         public static void WidthValidation(double value)
         {
             if (value <= 0 || value > 300)
@@ -46,6 +65,11 @@ namespace WinFormsApp_OOP_Lab1.util
                 );
         }
 
+        /// <summary>
+        /// Статический метод для валидации возраста
+        /// </summary>
+        /// <param name="value"> Проверямое значение </param>
+        /// <exception cref="PersonValidationException"> Ошибка валидации </exception>
         public static void AgeValidation(int value)
         {
             if (value < 0 || value > 120)

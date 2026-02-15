@@ -1,12 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace WinFormsApp_OOP_Lab1.Exceptions
 {
-    internal class MemoryException
+    /// <summary>
+    /// Класс для обработки ошибок памяти
+    /// Наследует от OutOfMemoryException
+    /// </summary>
+    public class MemoryException : OutOfMemoryException
     {
+        /// <summary>
+        /// Конструктор без параметров
+        /// </summary>
+        public MemoryException() : base("Переполнение памяти объектами класса Person!") { }
     }
 }

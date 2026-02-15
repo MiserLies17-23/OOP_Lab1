@@ -185,6 +185,7 @@
             // 
             // GenderComboBox
             // 
+            GenderComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             GenderComboBox.FormattingEnabled = true;
             GenderComboBox.Items.AddRange(new object[] { "Муж", "Жен" });
             GenderComboBox.Location = new Point(155, 136);
@@ -225,7 +226,7 @@
             Controls.Add(NameLabel);
             Controls.Add(NameTextBox);
             Name = "EditForm";
-            Text = "EditForm";
+            Text = "Редактирование данных";
             Load += EditForm_Load;
             ResumeLayout(false);
             PerformLayout();

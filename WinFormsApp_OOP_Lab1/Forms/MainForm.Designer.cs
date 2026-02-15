@@ -266,7 +266,7 @@
             Controls.Add(VariantLabel);
             Controls.Add(HeaderLabel);
             Name = "MainForm";
-            Text = "MainForm";
+            Text = "Данные человека";
             Load += CreateForm_Load;
             ResumeLayout(false);
             PerformLayout();
